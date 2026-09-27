@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CEP Cyber Fraud Simulator</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="main-container">
+    <header class="app-header">
+      <span class="badge">CEP Problem 07</span>
+      <h1>Cyber Fraud Simulator</h1>
+      <p>Simulated Indian Banking, SMS & UPI Scam Awareness</p>
+    </header>
+
+    <div class="content-grid">
+      <!-- Simulated Mobile Device Frame -->
+      <div class="phone-frame">
+        <div class="phone-notch"></div>
+        <div class="phone-status-bar">
+          <span id="phone-time">10:45 AM</span>
+          <span>📶 5G 🔋 98%</span>
+        </div>
+
+        <div class="phone-screen" id="phone-screen">
+          <div class="channel-tag" id="scenario-channel">SMS Message</div>
+
+          <div class="message-bubble" id="scenario-bubble">
+            <div class="bubble-header">
+              <span class="bubble-avatar" id="scenario-icon">📩</span>
+              <div>
+                <strong id="scenario-sender">VK-SBISMS</strong>
+                <small id="scenario-time">Just now</small>
+              </div>
+            </div>
+            <p class="bubble-text" id="scenario-body">Loading simulation...</p>
+          </div>
+
+          <!-- Red Flag Inspector Section -->
+          <div class="inspector-card">
+            <h4>🔍 Red Flag Inspector</h4>
+            <div class="inspector-item">
+              <span>Domain / Link:</span>
+              <strong class="flag-val" id="inspect-url">-</strong>
+            </div>
+            <div class="inspector-item">
+              <span>Urgency Hook:</span>
+              <strong class="flag-val" id="inspect-urgency">-</strong>
+            </div>
+            <div class="inspector-item">
+              <span>Official Channel:</span>
+              <strong class="safe-val" id="inspect-domain">-</strong>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="phone-actions">
+            <button class="btn btn-scam" onclick="makeDecision(true)">🚨 Mark as SCAM</button>
+            <button class="btn btn-safe" onclick="makeDecision(false)">✅ Safe / Proceed</button>
+          </div>
+        </div>
+
+        <!-- Feedback Overlay -->
+        <div class="feedback-overlay hidden" id="feedback-overlay">
+          <div class="feedback-card">
+            <h3 id="feedback-title">Result</h3>
+            <p id="feedback-explanation"></p>
+            <div class="golden-rule">
+              <strong>💡 Golden Rule:</strong>
+              <p id="feedback-rule"></p>
+            </div>
+            <button class="btn btn-primary" onclick="nextScenario()">Next Scenario ➔</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Scorecard & Analytics -->
+      <div class="stats-card">
+        <h3>📊 Training Scorecard</h3>
+        <div class="score-display">
+          <div class="score-circle">
+            <span id="score-percent">0%</span>
+            <small>Accuracy</small>
+          </div>
+          <div class="stats-meta">
+            <p>Completed: <b id="stat-completed">0</b> / <b id="stat-total">4</b></p>
+            <p>Scams Blocked: <b id="stat-blocked" class="text-green">0</b></p>
+            <p>Trapped: <b id="stat-trapped" class="text-red">0</b></p>
+          </div>
+        </div>
+
+        <div class="cert-box" id="cert-box">
+          <h4>🎓 Download CEP Certificate</h4>
+          <p>Complete all scenarios with ≥70% score to unlock.</p>
+          <input type="text" id="user-name" placeholder="Enter Full Name" class="input-field">
+          <input type="text" id="user-college" placeholder="Enter College / Institute" class="input-field">
+          <button class="btn btn-cert" id="btn-cert" onclick="claimCertificate()" disabled>Claim PDF Certificate</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
